@@ -6,6 +6,9 @@ authors = ["queragion2726 <queragion2726@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.6"
+flask = "^1.1.2"
+pyjwt = "^1.7.1"
+flask-restful = "^0.3.8"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"
