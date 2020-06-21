@@ -1,7 +1,7 @@
 from flask import Blueprint
 from flask_restful import Resource, Api
 
-bp = Blueprint("hellocake", __name__, url_prefix="/hellocake")
+bp = Blueprint("hellocake", __name__, url_prefix="/hello-cake")
 api = Api(bp)
 
 
