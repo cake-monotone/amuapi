@@ -1,5 +1,15 @@
-from amuapi import __version__
+import os
+
+import pytest
 
 
-def test_version():
-    assert __version__ == '0.1.0'
+def test_check_environ():
+    """
+    SECRET_KEY 체킹
+    """
+    os.environ.clear()
+
+    with pytest.raises(RuntimeError) as error:
+        from amuapi import app
+    assert "SECRET_KEY" in str(error.value)
+
