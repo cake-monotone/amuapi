@@ -5,7 +5,7 @@ bp = Blueprint("hellocake", __name__, url_prefix="/hellocake")
 api = Api(bp)
 
 
-class Index(Resource):
+class Cake(Resource):
     def get(self):
         return {
             "msg": "Hello! It's my favorite cake!",
@@ -13,5 +13,5 @@ class Index(Resource):
         }
 
 
-api.add_resource(Index, "/")
+api.add_resource(Cake, "/cake")
 
