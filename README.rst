@@ -11,3 +11,13 @@ API 연습용 레포지토리
 -----
 
 https://queragion2726.gitbook.io/amuapi-api-references/
+
+----
+기타
+----
+
+- 의존성 관리
+poetry
+
+- formatter
+black
