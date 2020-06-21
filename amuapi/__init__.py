@@ -20,9 +20,9 @@ def create_app(**config):
 
 def get_configs_from_env():
     if "JWT_SECRET_KEY" not in os.environ:
-        raise 'No "JWT_SECRET_KEY" variable in environ.'
+        raise RuntimeError('No "JWT_SECRET_KEY" variable in environ.')
     if "FLASK_SECRET_KEY" not in os.environ:
-        raise 'No "FLASK_SECRET_KEY" variable in environ.'
+        raise RuntimeError('No "FLASK_SECRET_KEY" variable in environ.')
 
     return {
         "JWT_SECRET_KEY": os.environ["JWT_SECRET_KEY"],
