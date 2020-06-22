@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_jwt_extended import JWTManager
 
 
 def create_app(**config):
@@ -12,8 +13,10 @@ def create_app(**config):
 
     # 블루 프린트 설정
     from . import hellocake
+    from . import numbaseball
 
     app.register_blueprint(hellocake.bp)
+    app.register_blueprint(numbaseball.bp)
 
     return app
 
@@ -33,4 +36,5 @@ def get_configs_from_env():
 configs = get_configs_from_env()
 
 app = create_app(**configs)
+jwt = JWTManager(app)
 
