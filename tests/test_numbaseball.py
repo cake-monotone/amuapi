@@ -1,3 +1,6 @@
+from flask_jwt_extended import decode_token
+
+
 def test_start(client):
     response = client.post("/num-baseball/start", data={})
 
@@ -37,3 +40,23 @@ def test_start_with_wrong_parameter(client):
     response = client.post("/num-baseball/start", data={"range_digit": "string"})
     assert response.status_code == 400
 
+
+def get_token(client, range_digit, num_digit):
+    response = client.post(
+        "/num-baseball/start", data={"range_digit": range_digit, "num_digit": num_digit}
+    )
+    return response.get_json()["access_token"]
+
+
+def test_question(client):
+    token = get_token(client, 9, 3)
+    data = decode_token(token)
+
+    response = client.post(
+        "/num-baseball/question",
+        data={"answer": [1, 2, 3]},
+        headers={"Authorization": f"Bearer {token}"},
+    )
+
+    assert response.status_code == 200
+    assert b"strikes" in response.data
