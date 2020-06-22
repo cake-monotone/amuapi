@@ -5,7 +5,7 @@ def test_hellocake(client):
     """
     Hello, World 테스트
     """
-    response = client.get("/hellocake/cake")
+    response = client.get("/hello-cake/cake")
     assert response.status_code == 200
     assert response.is_json
 
