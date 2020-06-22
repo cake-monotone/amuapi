@@ -14,6 +14,8 @@ api = Api(bp)
 
 
 from . import start
+from . import question
 
 api.add_resource(start.Start, "/start")
+api.add_resource(question.Question, "/question")
 
