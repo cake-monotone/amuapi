@@ -13,3 +13,11 @@ def test_hellocake(client):
 
     assert data == {"cake": "Red Velvet", "msg": "Hello! It's my favorite cake!"}
 
+
+def test_teapot(client):
+    """
+    티팟 테스트
+    """
+    response = client.get("/hello-cake/teapot")
+    assert response.status_code == 418
+
